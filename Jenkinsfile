@@ -3,6 +3,9 @@ pipeline {
 
   stages {
     stage('Build & Test') {
+      when {
+        branch 'main'
+      }
       agent {
         dockerfile {
           filename 'Dockerfile.jenkins'
