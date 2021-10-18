@@ -20,5 +20,17 @@ pipeline {
         sh 'gradle jacocoTestReport'
       }
     }
+
+    stage('Sonarqube analysis') {
+      environment {
+        scannerHome = tool 'sonarqube-scanner'
+      }
+
+      steps {
+        withSonarQubeEnv(installationName: 'sonarqube') {
+          sh '$scannerHome/bin/sonar-scanner'
+        }
+      }
+    }
   }
 }
