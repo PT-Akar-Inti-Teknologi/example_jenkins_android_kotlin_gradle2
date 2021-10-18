@@ -16,7 +16,7 @@ pipeline {
       }
 
       steps {
-        sh 'gradle check'
+        sh 'gradle testDebugUnitTest'
       }
     }
   }
