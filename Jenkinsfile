@@ -17,6 +17,7 @@ pipeline {
 
       steps {
         sh 'gradle testDebugUnitTest'
+        sh 'gradle jacocoTestReport'
       }
     }
   }
